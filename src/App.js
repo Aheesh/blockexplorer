@@ -5,7 +5,7 @@ import "./App.css";
 
 const settings = {
   apiKey: process.env.REACT_APP_ALCHEMY_API_KEY,
-  network: Network.ETH_MAINNET,
+  network: Network.ETH_GOERLI,
 };
 
 const alchemy = new Alchemy(settings);
@@ -29,7 +29,7 @@ function TransactionReceipt({ txHash, isVisible }) {
   }
 
   return (
-    <div>
+    <div className="transaction-receipt">
       <p>Transaction Hash: {txHash}</p>
       {tx ? (
         <>
