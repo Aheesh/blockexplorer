@@ -1,7 +1,10 @@
 import { Alchemy, Network } from "alchemy-sdk";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import "./App.css";
+//import { Router } from "react-router-dom/cjs/react-router-dom.min";
 
 const settings = {
   apiKey: process.env.REACT_APP_ALCHEMY_API_KEY,
@@ -60,7 +63,13 @@ function TransactionList({ transactions }) {
     <ul>
       {transactions.map((tx, index) => (
         <li key={index}>
-          <span onClick={() => toggleExpand(tx)}>Transaction Hash: {tx}</span>
+          <Link
+            to="#" // You can replace "#" with any path you'd like this link to navigate to.
+            onClick={() => toggleExpand(tx)}
+            style={{ color: "blue", textDecoration: "underline" }} // These styles make it look like a traditional hyperlink.
+          >
+            Transaction Hash: {tx}
+          </Link>
           <TransactionReceipt txHash={tx} isVisible={expandedTx === tx} />
         </li>
       ))}
@@ -114,11 +123,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <h1>The Latest Block Number: {blockNumber}</h1>
-      <h2>Block Attributes</h2>
-      <BlockAttributes blockNumber={blockNumber} />
-    </div>
+    <Router>
+      <div className="App">
+        <h1>The Latest Block Number: {blockNumber}</h1>
+        <h2>Block Attributes</h2>
+        <BlockAttributes blockNumber={blockNumber} />
+      </div>
+    </Router>
   );
 }
 
