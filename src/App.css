@@ -28,6 +28,24 @@
   color: #61dafb;
 }
 
+.transaction-receipt {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Left-align the content */
+  background-color: yellow; /* Set the background color to yellow */
+}
+
+.transaction-receipt p {
+  margin: 0;
+}
+
+.transaction-receipt strong {
+  font-weight: bold; /* Makes the static text bold */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
